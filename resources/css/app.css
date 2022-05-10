@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    section {
+        @apply first:mt-32 mb-12;
+    }
+}
