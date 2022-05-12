@@ -23,7 +23,7 @@ class ArticleFactory extends Factory
             'excerpt' => $this->faker->sentence(3),
             'category_id' => rand(1, 5),
             'user_id' => rand(1, 5),
-            'published_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
+            'published_at' => $this->faker->dateTimeBetween('-3 month', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
             'created_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
             'status' => $this->faker->randomElement(['draft', 'published']),

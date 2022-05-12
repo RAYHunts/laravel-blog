@@ -7,17 +7,21 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production",
-        "tailwind": "npx tailwindcss -i ./resources/css/main.css -o ./public/css/style.css --watch"
+        "production": "mix --production"
     },
     "devDependencies": {
+        "@alpinejs/collapse": "^3.4.2",
+        "@tailwindcss/forms": "^0.4.0",
         "@tailwindcss/line-clamp": "^0.4.0",
-        "autoprefixer": "^10.4.7",
+        "alpinejs": "^3.4.2",
+        "autoprefixer": "^10.4.2",
         "axios": "^0.25",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.4.13",
-        "tailwindcss": "^3.0.24"
+        "perfect-scrollbar": "^1.5.5",
+        "postcss": "^8.4.6",
+        "postcss-import": "^14.0.2",
+        "tailwindcss": "^3.0.18"
     },
     "dependencies": {
         "tw-elements": "^1.0.0-alpha12"

@@ -1,37 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{-- Meta Tags.io --}}
-    {{--  Primary Meta Tags  --}}
-    <title>{{ $title ?? 'Welcome' }}</title>
-    <meta name="title" content="{{ $title ?? 'Welcome' }}">
-    <meta name="description" content="{{ $title ?? 'Welcome' }}">
-    {{--  Open Graph / Facebook  --}}
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url('') }}">
-    <meta property="og:title" content="{{ $title ?? 'Welcome' }}">
-    <meta property="og:description" content="{{ $title ?? 'Welcome' }}">
-    <meta property="og:image" content="{{ $image ?? 'https://via.placeholder.com/640x480.png/001155?text=' }}">
-    {{-- Twitter --}}
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ url('') }}">
-    <meta property="twitter:title" content="{{ $title ?? 'Welcome' }}">
-    <meta property="twitter:description" content="{{ $title ?? 'Welcome' }}">
-    <meta property="twitter:image" content="{{ $image ?? 'https://via.placeholder.com/640x480.png/001155?text=' }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    {{-- font awesome cdn latest --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-</head>
-<body class="bg-blue-200 font-sans">
-
-    @yield('content')
-
 <footer class="text-center bg-gray-900 text-white">
-    <div class="container px-6 pt-6">
+    <div class="px-6 pt-6">
       <div class="flex justify-center mb-6">
         <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
           <svg aria-hidden="true"
@@ -270,8 +238,3 @@
       <a class="text-white" href="https://tailwind-elements.com/">Tailwind Elements</a>
     </div>
   </footer>
-  {{-- scriptjs --}}
-  <script src="{{ asset('js/app.js') }}"></script>
-  {{-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> --}}
-  </body>
-  </html>
