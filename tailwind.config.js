@@ -1,4 +1,6 @@
 module.exports = {
+    // enable dark mode
+    darkMode: "media",
     content: [
         "./storage/framework/views/*.php",
         "./resources/**/*.blade.php",

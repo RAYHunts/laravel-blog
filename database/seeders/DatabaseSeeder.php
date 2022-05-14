@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
             'username' => 'rayhunts',
             'email' => 'rayhunts710@gmail.com',
             'role' => 'developer',
-            'email_verified_at' => now(),
             'password' => bcrypt(12345), // password
             'remember_token' => Str::random(10),
         ]);
@@ -34,7 +33,6 @@ class DatabaseSeeder extends Seeder
             'username' => 'pathol',
             'email' => 'patholrahul@gmail.com',
             'role' => 'admin',
-            'email_verified_at' => now(),
             'password' => bcrypt(12345), // password
             'remember_token' => Str::random(10),
         ]);

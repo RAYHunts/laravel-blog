@@ -14,10 +14,10 @@ class ArticleController extends Controller
     {
         return view('welcome', [
             'title' => 'Welcome to the homepage',
-            'articles' => Article::with(['category', 'author'])->latest('updated_at', 'desc')->published()->paginate(9),
+            'articles' => Article::main()->filter()->simplePaginate(9)->appends(request()->query()),
             'categories' => Category::all(),
             'advs' => Adv::all(),
-            'trending' => Article::with(['category', 'author'])->latest('updated_at', 'desc')->published()->take(3)->get(),
+            'trending' => Article::main()->trending()->take(5),
         ]);
     }
     public function show(Article $article)
@@ -27,26 +27,6 @@ class ArticleController extends Controller
             'article' => $article->load('author', 'category'),
             'category' => $article->category,
             'articles' => Article::with(['author', 'category'])->latest()->get(),
-            'advs' => Adv::all(),
-        ]);
-    }
-    public function findByCategory(Category $category)
-    {
-        return view('category', [
-            'title' => $category->name,
-            'articles' => $category->articles->load(['author', 'category']),
-            'categories' => Category::all(),
-            'articles_all' => Article::with(['author', 'category'])->latest()->get(),
-            'advs' => Adv::all(),
-        ]);
-    }
-    public function findByAuthor(User $author)
-    {
-        return view('author', [
-            'title' => $author->name,
-            'articles' => $author->articles->load('category', 'author')->orderBy('updated_at', 'desc'),
-            'categories' => Category::all(),
-            'articles_all' => Article::with(['author', 'category'])->latest('published_at')->get(),
             'advs' => Adv::all(),
         ]);
     }

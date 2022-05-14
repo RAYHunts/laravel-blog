@@ -34,15 +34,21 @@
           @if(isset($categories))
           @foreach($categories as $category)
           <li class="nav-item hover:bg-blue-700 text-blue-600 font-semibold uppercase hover:text-white p-3">
-            <a class="nav-link " href="{{ url('category/'.$category->slug) }}">
+            <a class="nav-link " href="{{ url('?category='.$category->slug) }}">
               {{ $category->name }}
             </a>
           </li>
           @endforeach
           <li class="nav-item hover:bg-blue-700 text-blue-600 font-semibold hover:text-white p-3">
-            <a class="nav-link " href="{{ url('trending') }}">
+            <a class="nav-link " href="{{ url('?sort=popular') }}">
               <i class="fa-solid fa-arrow-trend-up"></i>
-              Trending
+              Popular
+            </a>
+          </li>
+          <li class="nav-item hover:bg-blue-700 text-blue-600 font-semibold hover:text-white p-3">
+            <a class="nav-link " href="{{ url('?sort=oldest') }}">
+              <i class="fa-solid fa-arrow-trend-down"></i>
+              Oldest
             </a>
           </li>
           @endif
@@ -51,6 +57,12 @@
       <div class="flex items-center justify-center">
         <div class="lg:w-96">
           <form action="{{ url('/') }}" method="get">
+            @if(request()->has('category'))
+            <input type="hidden" name="category" value="{{ request()->get('category') }}">
+            @endif
+            @if(request()->has('author'))
+            <input type="hidden" name="author" value="{{ request()->get('author') }}">
+            @endif
             <div class="input-group relative flex flex-wrap items-stretch w-full">
               <input type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon3" name="search" value="{{ request('search') }}">
               <button class="btn inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" type="submit" id="button-addon3">Search</button>

@@ -3,6 +3,21 @@
 @tailwind utilities;
 @layer base {
     section {
-        @apply first:mt-32 mb-12;
+        @apply mb-12 first:mt-32 first:md:mt-36;
+    }
+    .scroll-hidden::-webkit-scrollbar {
+        height: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
+}
+@layer components {
+    .my-button {
+        /* add padding */
+        @apply rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900;
+    }
+}
+@layer utilities {
+    reset-button {
+        @apply bg-transparent text-slate-800 hover:bg-transparent focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 active:bg-transparent;
     }
 }

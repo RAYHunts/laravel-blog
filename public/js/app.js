@@ -9,6 +9,12 @@
 
 __webpack_require__(/*! ./tw-elements */ "./resources/js/tw-elements.js");
 
+var toggleNav = document.getElementById("toggle");
+var collapse = document.getElementById("collapse");
+toggleNav.addEventListener("click", function () {
+  collapse.classList.toggle("hidden");
+});
+
 /***/ }),
 
 /***/ "./resources/js/tw-elements.js":
