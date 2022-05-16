@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use Clockwork\Storage\Search;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
+
+
+
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
     protected $guarded = [
         'id',
     ];
@@ -56,8 +61,7 @@ class Article extends Model
     public function scopeTrending($query)
     {
         return $query->orderBy('views', 'desc')
-            ->where('published_at', '>=', now()->subDays(14))
-            ->published();
+            ->where('published_at', '>=', now()->subDays(90));
     }
     public function scopePublished($query)
     {
@@ -69,6 +73,20 @@ class Article extends Model
     }
     public function scopeMain($query)
     {
-        return $query->with(['category', 'author'])->latest('published_at', 'desc')->published()->filter(request(['search', 'category', 'author']));
+        return $query->with(['category', 'author'])->latest('published_at', 'desc')->published();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }

@@ -17,10 +17,9 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->word(2),
             'slug' => $this->faker->slug(),
             'content' => $this->faker->paragraph(mt_rand(5, 20)),
-            'excerpt' => $this->faker->sentence(3),
             'category_id' => rand(1, 5),
             'user_id' => rand(1, 5),
             'published_at' => $this->faker->dateTimeBetween('-3 month', 'now'),

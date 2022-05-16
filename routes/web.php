@@ -3,6 +3,10 @@
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,22 +19,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+// Route::resource('/dashboard/post', PostController::class)->middleware(['auth', 'verified']);
+
+// Path: routes\web.php
+Route::get('/', [ArticleController::class, 'index'])->name('home');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
+    Route::resource('/dashboard/article', PostController::class);
+    Route::get('/dashboard/profile', [UserController::class, 'profile'])->name('profile');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::get('/articles', function () {
+Route::get('/carousel', function () {
     return view(
-        'articles',
+        'carousel',
         [
-            'articles' => Article::all(),
-            'categories' => Category::all()
+            'articles' => Article::with(['author', 'category'])->latest()->limit(5)->get(),
         ]
     );
-})->middleware(['auth'])->name('articles');
+})->name('carousel');
+
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::resource('/dashboard/category', CategoryController::class);
+    Route::resource('/dashboard/users', UserController::class);
+    Route::get('/dashboard/all_articles', [PostController::class, 'all'])->name('all_articles');
+});
 
 require __DIR__ . '/auth.php';
+
+Route::get('/{article:slug}', [ArticleController::class, 'show'])->name('article');
