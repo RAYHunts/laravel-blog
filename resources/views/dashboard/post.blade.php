@@ -73,8 +73,8 @@
         </table>
         @else
         <div class="flex flex-col w-full rounded-md overflow-hidden shadow-sm shadow-slate-900/50">
-            <div class="flex justify-center items-center">
-                <div class="text-center text-gray-900 font-light px-6 py-4 whitespace-nowrap uppercase w-48">
+            <div class="flex justify-center items-center h-[80vh]">
+                <div class="text-center dark:text-gray-400 text-red-700  px-6 py-4 whitespace-nowrap uppercase w-48 font-bold">
                     No Articles
                 </div>
             </div>

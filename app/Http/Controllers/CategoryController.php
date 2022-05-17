@@ -47,7 +47,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'slug' => SlugService::createSlug(Category::class, 'slug', $request->name),
         ]);
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('success', 'Category created successfully');
     }
 
     /**
