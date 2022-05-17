@@ -40,7 +40,7 @@
                     <div class="w-full mx-2">
                         <label class="block mb-2" for="image">Image</label>
                         <div class="w-full p-3">
-                            <img class="w-1/3 rounded-sm" id="imageView" src="{{ asset($article->image) }}">
+                            <img class="w-1/3 rounded-sm" id="imageView" src="{{ asset('public/'.$article->image) }}">
                         </div>
                         <input type="file" name="image" id="image">
                         @error('image')
