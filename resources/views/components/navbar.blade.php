@@ -51,7 +51,7 @@
                       <button type="button" class="dropdown-toggle focus:outline-none flex items-center hidden-arrow" href="#" id="dropdownMenuButton2" role="button"
                       data-bs-toggle="dropdown" aria-expanded="false">
                           <div class="w-8 h-8 overflow-hidden rounded-full">
-                              <img src="{{ asset(Auth::user()->image) }}" alt="avatar">
+                              <img src="{{ asset('storage/'.Auth::user()->image) }}" alt="avatar">
                           </div>
                           <h3 class="mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 hidden lg:block">{{ Auth::user()->name }}</h3>
                       </button>

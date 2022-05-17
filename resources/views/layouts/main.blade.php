@@ -10,20 +10,28 @@
     {{-- Meta Tags.io --}}
     {{--  Primary Meta Tags  --}}
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
-    <meta name="title" content="{{ $title ?? 'Welcome' }}">
-    <meta name="description" content="{{ $desc ?? 'Welcome' }}">
+    <meta name="title" content="{{ $title ?? config('app.name', 'Laravel') }}">
+    <meta name="description" content="{{ $desc ?? config('app.desc', 'Descripsi') }}">
+    <meta name="keywords" content="{{ $keywords ?? config('app.keywords', 'Keywords') }}">
+    {{-- author --}}
+    @if(isset($author))
+        <meta name="author" content="{{ $author }}">
+    @endif
+    {{-- Open Graph / Facebook --}}
+    {{-- Open Graph / Facebook --}}
     {{--  Open Graph / Facebook  --}}
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="{{ $title ?? 'Welcome' }}">
-    <meta property="og:description" content="{{ $desc ?? 'Welcome' }}">
-    <meta property="og:image" content="{{ $thumb ?? 'https://via.placeholder.com/640x480.png/001155?text=' }}">
+    <meta property="og:title" content="{{ $title ?? config('app.name', 'Laravel') }}">
+    <meta property="og:description" content="{{ $desc ?? config('app.desc', 'Laravel') }}">
+    <meta property="og:image" content="{{ $thumb ?? asset('img/logo/icon.png') }}">
     {{-- Twitter --}}
+
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="{{ $desc ?? 'Welcome' }}">
+    <meta property="twitter:title" content="{{ $desc ?? config('app.desc', 'Laravel') }}">
     <meta property="twitter:description" content="{{ $thumb ?? 'Welcome' }}">
-    <meta property="twitter:image" content="{{ $image ?? 'https://via.placeholder.com/640x480.png/001155?text=' }}">
+    <meta property="twitter:image" content="{{ $thumb ?? asset('img/logo/icon.png') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- font awesome cdn latest --}}
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@18657a9/css/all.min.css" rel="stylesheet" type="text/css" />

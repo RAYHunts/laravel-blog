@@ -38,9 +38,19 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt(12345), // password
             'remember_token' => Str::random(10),
         ]);
-        User::factory(10)->create();
-        Category::factory(20)->create();
-        Article::factory(200)->create();
-        Adv::factory(5)->create();
+        User::create([
+            'name' => 'Sandika Galih',
+            'username' => 'wpunpas',
+            'email' => 'wpunpas@gmail.com',
+            'role' => 'admin',
+            'email_verified_at' => now(),
+            'password' => bcrypt(12345), // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        // User::factory(10)->create();
+        // Category::factory(20)->create();
+        // Article::factory(200)->create();
+        // Adv::factory(5)->create();
     }
 }

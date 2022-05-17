@@ -63,7 +63,7 @@
                 <div class="mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 h-full w-full">
                     <div class="overflow-hidden  w-full h-64">
                         <a  href="{{ route('article', $article->slug) }}">
-                            <img class="object-cover w-full h-full hover:scale-110 transition-all duration-200 ease-linear" src="{{ asset('public/'.$article->image) }}" alt="{{ $article->caption }}">
+                            <img class="object-cover w-full h-full hover:scale-110 transition-all duration-200 ease-linear" src="{{ asset('storage/'.$article->image) }}" alt="{{ $article->caption }}">
                         </a>
                     </div>
                     <div class="p-6">
