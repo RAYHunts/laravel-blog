@@ -34,6 +34,8 @@ Route::middleware(['auth', 'verified', 'developer'])->group(function () {
 });
 
 
+// Hello i am under the water
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
