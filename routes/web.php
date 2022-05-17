@@ -26,12 +26,12 @@ use Illuminate\Support\Facades\Artisan;
 // Path: routes\web.php
 Route::get('/', [ArticleController::class, 'index'])->name('home');
 
-Route::middleware(['auth', 'verified', 'developer'])->group(function () {
-    Route::get('/migrate-fresh', function () {
-        Artisan::call('migrate:fresh');
-        return redirect()->back();
-    });
-});
+// Route::middleware(['auth', 'verified', 'developer'])->group(function () {
+//     Route::get('/migrate-fresh', function () {
+//         Artisan::call('migrate:fresh');
+//         return redirect()->back();
+//     });
+// });
 
 
 // Hello i am under the water
