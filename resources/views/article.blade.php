@@ -7,7 +7,7 @@
                     {{ $article->title }}
                 </h1>
                 <div class="overflow-hidden w-full h-80">
-                    <img class="object-cover w-full h-full hover:scale-110 transition-all duration-200 ease-linear" src="{{ asset($article->image) }}" alt="{{ $article->caption }}">
+                    <img class="object-cover w-full h-full hover:scale-110 transition-all duration-200 ease-linear" src="{{ asset('public/'.$article->image) }}" alt="{{ $article->caption }}">
                 </div>
                 <div class="bg-white dark:bg-gray-800 text-gray-600 h-full dark:text-gray-300 rounded-b p-6 flex flex-col gap-3">
                     <div>

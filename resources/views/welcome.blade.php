@@ -63,14 +63,14 @@
                 <div class="mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 h-full w-full">
                     <div class="overflow-hidden  w-full h-64">
                         <a  href="{{ route('article', $article->slug) }}">
-                            <img class="object-cover w-full h-full hover:scale-110 transition-all duration-200 ease-linear" src="{{ asset($article->image) }}" alt="{{ $article->caption }}">
+                            <img class="object-cover w-full h-full hover:scale-110 transition-all duration-200 ease-linear" src="{{ asset('public/'.$article->image) }}" alt="{{ $article->caption }}">
                         </a>
                     </div>
                     <div class="p-6">
                         <div>
                             <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">{{ $article->category->name }}</span>
                             <a href="{{ route('article', $article->slug) }}" class="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white hover:text-gray-600 hover:underline  line-clamp-2">{{ $article->title }}</a>
-                            <p class="text-xs font-medium line-clamp-2">{{ $article->excerpt }}</p>
+                            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{{ $article->excerpt }}</p>
                         </div>
             
                         <div class="mt-4">
