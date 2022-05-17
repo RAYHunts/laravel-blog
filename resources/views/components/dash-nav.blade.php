@@ -87,7 +87,7 @@
                     <x-application-logo class="w-24"/>
                 </a>
             </div>
-            <div class="flex flex-col gap-2 dark:text-slate-300 text-s">
+            <div class="flex flex-col gap-2 dark:text-slate-300 text-sm mt-9">
                 <h3 class="text-xs uppercase text-slate-500 font-semibold border-b-2 border-slate-500 pb-3">Author</h3>
                 <ul>
                         <li
