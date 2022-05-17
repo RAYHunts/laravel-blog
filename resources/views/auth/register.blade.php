@@ -7,7 +7,7 @@
           <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
               <a href="{{ route('home') }}">
                 {{-- <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">Brand</h2> --}}
-                <x-application-logo class="w-60 fill-current text-gray-500 mx-auto" />
+                <x-application-logo class="w-28 fill-current text-gray-500 mx-auto" />
               </a>
   
               <p class="text-xl text-center text-gray-600 dark:text-gray-200">Welcome back!</p>
