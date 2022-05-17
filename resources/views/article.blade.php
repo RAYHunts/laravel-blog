@@ -1,4 +1,4 @@
-<x-main>
+<x-main :title="__($article->title)" :description="__($article->excerpt)" :thumb="__($article->image)" :keywords="__($article->excerpt)">
     <x-navbar/>
     <main>
         <section class="mt-40 grid grid-cols-5 gap-3 px-3 lg:px-32 mb-12 place-items-center lg:place-items-start">

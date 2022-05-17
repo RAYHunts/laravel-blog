@@ -10,9 +10,9 @@
     {{-- Meta Tags.io --}}
     {{--  Primary Meta Tags  --}}
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
-    <meta name="title" content="{{ $title ?? config('app.name', 'Laravel') }}">
-    <meta name="description" content="{{ $desc ?? config('app.desc', 'Descripsi') }}">
-    <meta name="keywords" content="{{ $keywords ?? config('app.keywords', 'Keywords') }}">
+    <meta name="title" content="{{ $title ?? config('app.name', null) }}">
+    <meta name="description" content="{{ $description ?? null) }}">
+    <meta name="keywords" content="{{ $keywords ?? null }}">
     {{-- author --}}
     @if(isset($author))
         <meta name="author" content="{{ $author }}">
@@ -22,16 +22,16 @@
     {{--  Open Graph / Facebook  --}}
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="{{ $title ?? config('app.name', 'Laravel') }}">
-    <meta property="og:description" content="{{ $desc ?? config('app.desc', 'Laravel') }}">
-    <meta property="og:image" content="{{ $thumb ?? asset('img/logo/icon.png') }}">
+    <meta property="og:title" content="{{ $title ?? config('app.name', null) }}">
+    <meta property="og:description" content="{{ $description ?? null) }}">
+    <meta property="og:image" content="{{ asset('storage/'.$thumb) ?? asset('img/logo/icon.png') }}">
     {{-- Twitter --}}
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="{{ $desc ?? config('app.desc', 'Laravel') }}">
+    <meta property="twitter:title" content="{{ $description ?? null) }}">
     <meta property="twitter:description" content="{{ $thumb ?? 'Welcome' }}">
-    <meta property="twitter:image" content="{{ $thumb ?? asset('img/logo/icon.png') }}">
+    <meta property="twitter:image" content="{{ asset('storage/'.$thumb) ?? asset('storage/img/logo/icon.png') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- font awesome cdn latest --}}
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@18657a9/css/all.min.css" rel="stylesheet" type="text/css" />
