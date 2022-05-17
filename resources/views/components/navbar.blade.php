@@ -5,7 +5,7 @@
                 <div class="flex items-center">
                     <a class="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="{{ url('/') }}">
                     {{-- env app name --}}
-                    <x-application-logo class="w-40 fill-current text-gray-500 mx-auto" />
+                    <x-application-logo class="w-12 fill-current text-gray-500 mx-auto" />
                     </a>
                     <!-- Search input on desktop screen -->
                     <div class="hidden mx-10 md:block">

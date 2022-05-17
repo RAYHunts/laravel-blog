@@ -20,7 +20,7 @@
                             </svg>
                         </button>
                         <a href="{{ route('home') }}">
-                            <x-application-logo class="w-28"/>
+                            <x-application-logo class="w-12"/>
                         </a>
                     </div>
                     <div class="flex items-center">
@@ -68,7 +68,6 @@
         <aside
             id="sidebar"
             class="flex flex-col fixed z-20 left-0 top-0 lg:translate-x-0 transform h-screen w-64 shrink-0  p-4 transition-all duration-200 ease-in-out -translate-x-64 bg-white shadow dark:bg-gray-800">
-            <div class="flex justify-between items-center mb-10 pr-3 sm:px-2">
                 <button
                     class="lg:hidden text-slate-500 hover:text-slate-400"
                     aria-controls="sidebar"
