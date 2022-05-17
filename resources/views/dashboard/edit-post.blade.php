@@ -36,7 +36,7 @@
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="items-center -mx-2 md:flex mt-4 text-sm font-medium text-gray-600 dark:text-gray-200">
+                <div class="items-center -mx-2 flex mt-4 text-sm font-medium text-gray-600 dark:text-gray-200 flex-col gap-2">
                     <div class="w-full mx-2">
                         <label class="block mb-2" for="image">Image</label>
                         <div class="w-full p-3">
