@@ -127,7 +127,7 @@
                         </a>
                         </li>
                         <li
-                            class="px-3 py-2 rounded-sm mb-0.5 last:mb-0  {{ Route::is('article*') ? 'bg-slate-900 dark:bg-slate-400 dark:text-slate-800 text-slate-300 font-semibold' : '' }} hover:bg-slate-900 dark:hover:bg-slate-400 transition-all duration-300 ease-in-out dark:hover:text-slate-800 hover:text-slate-300"
+                            class="px-3 py-2 rounded-sm mb-0.5 last:mb-0  {{ Route::is('ads*') ? 'bg-slate-900 dark:bg-slate-400 dark:text-slate-800 text-slate-300 font-semibold' : '' }} hover:bg-slate-900 dark:hover:bg-slate-400 transition-all duration-300 ease-in-out dark:hover:text-slate-800 hover:text-slate-300"
                         >
                             <a href="{{ route('article.index') }}">
                                 <div class="flex items-center">
@@ -153,7 +153,7 @@
                     <ul>
 
                       <li
-                      class="px-3 py-2 rounded-sm mb-0.5 last:mb-0  {{ Route::is('article*') ? 'bg-slate-900 dark:bg-slate-400 dark:text-slate-800 text-slate-300 font-semibold' : '' }} hover:bg-slate-900 dark:hover:bg-slate-400 transition-all duration-300 ease-in-out dark:hover:text-slate-800 hover:text-slate-300"
+                      class="px-3 py-2 rounded-sm mb-0.5 last:mb-0  {{ Route::is('web*') ? 'bg-slate-900 dark:bg-slate-400 dark:text-slate-800 text-slate-300 font-semibold' : '' }} hover:bg-slate-900 dark:hover:bg-slate-400 transition-all duration-300 ease-in-out dark:hover:text-slate-800 hover:text-slate-300"
                         >
                             <a href="{{ route('article.index') }}">
                                 <div class="flex items-center">
