@@ -68,24 +68,6 @@
         <aside
             id="sidebar"
             class="flex flex-col fixed z-20 left-0 top-0 lg:translate-x-0 transform h-screen w-64 shrink-0  p-4 transition-all duration-200 ease-in-out -translate-x-64 bg-white shadow dark:bg-gray-800">
-                <button
-                    class="lg:hidden text-slate-500 hover:text-slate-400"
-                    aria-controls="sidebar"
-                    aria-expanded="false" id="expand">
-                    <span class="sr-only">Close sidebar</span
-                    ><svg
-                        class="w-6 h-6 fill-current"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M10.7 18.7l1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4L4 12z"
-                        ></path>
-                    </svg></button
-                >
-                <a href="{{ route('home') }}">
-                    <x-application-logo class="w-24"/>
-                </a>
             </div>
             <div class="flex flex-col gap-2 dark:text-slate-300 text-sm mt-9">
                 <h3 class="text-xs uppercase text-slate-500 font-semibold border-b-2 border-slate-500 pb-3">Author</h3>

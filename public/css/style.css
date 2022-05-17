@@ -3145,6 +3145,9 @@ textarea.form-control.is-invalid {
 .mt-\[-5px\] {
   margin-top: -5px;
 }
+.mt-9 {
+  margin-top: 2.25rem;
+}
 .box-content {
   box-sizing: content-box;
 }
