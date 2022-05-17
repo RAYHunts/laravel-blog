@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- icon --}}
+    <link rel="icon" href="{{ asset('img/logo/icon.png') }}">
+    {{-- css --}}
     {{-- Meta Tags.io --}}
     {{--  Primary Meta Tags  --}}
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
