@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+
 
 class PostController extends Controller
 {
@@ -58,7 +60,8 @@ class PostController extends Controller
             'caption' => 'max:255',
         ]);
         $validated['slug'] = SlugService::createSlug(Article::class, 'slug', $validated['title']);
-        $validated['image'] = $request->file('image')->store('public/img/posts');
+        $validated['image'] = $request->file('image')->store('img/posts');
+        $validated['excerpt'] = Str::limit(strip_tags($request->content), 200);
         $validated['user_id'] = auth()->id();
         $validated['published_at'] = now();
         $validated['status'] = 'published';
@@ -71,7 +74,6 @@ class PostController extends Controller
         $request->validate([
             // title unique
             'title' => 'required|max:255',
-            'slug' => 'required|unique:articles|max:255',
             'content' => 'required',
             'category' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -80,8 +82,9 @@ class PostController extends Controller
 
         Article::create([
             'title' => $request->title,
-            'slug' => $request->slug,
+            'slug' => SlugService::createSlug(Article::class, 'slug', $request->title),
             'content' => $request->content,
+            'excerpt' => Str::limit(strip_tags($request->content), 200),
             'category' => $request->category,
             'image' => $request->image,
             'captions' => $request->captions,
@@ -140,15 +143,16 @@ class PostController extends Controller
         // if ($article->image) {
         //     Storage::delete($article->image);
         // }
+        if ($article->author->id != auth()->user()->id || auth()->user()->role != 'admin') {
+            return redirect()->route('article.index')->with('error', 'You do not have permition to delete this article');
+        }
         Article::destroy($article->id);
-        return redirect()->route('article.index');
+        if (auth()->user()->role != 'admin') {
+            return redirect()->route('all_articles')->with('success', 'Article has been deleted');
+        }
+        return redirect()->route('article.index')->with('success', 'Article has been deleted');
     }
 
-    public function checkSlug(Request $request)
-    {
-        $slug = SlugService::createSlug(Article::class, 'slug', $request->title);
-        return response()->json(['slug' => $slug]);
-    }
 
     public function all()
     {

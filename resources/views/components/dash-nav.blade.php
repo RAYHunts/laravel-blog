@@ -141,7 +141,7 @@
                             <a href="{{ route('all_articles') }}">
                                 <div class="flex items-center">
                                     <i class="fa-solid fa-paste"></i>
-                                    <span class="ml-3">AllPost</span>
+                                    <span class="ml-3">All Post</span>
                                 </div>
                         </a>
                         </li>

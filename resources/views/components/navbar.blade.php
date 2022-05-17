@@ -42,10 +42,8 @@
 
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
             <div class="items-center md:flex hidden flex-nowrap" id="collapse">
-                <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1 items-center">
+                <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1 lg:items-center">
                     <button type="button" class="w-8 h-8  items-center justify-center bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:text-gray-200 text-gray-700 transition duration-150 rounded-full false hidden md:block" data-toggle="toggle-dark"><i class="fa-solid fa-moon"></i></button>
-                    <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" href="{{ url('/') }}">Home</a>
-                    <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" href="{{ url('/trending') }}">Trending</a>
                 </div>
                 <div class="flex items-center py-2 -mx-1 md:mx-0">
                   @if(Auth::check())
@@ -55,11 +53,14 @@
                           <div class="w-8 h-8 overflow-hidden rounded-full">
                               <img src="{{ asset(Auth::user()->image) }}" alt="avatar">
                           </div>
-                          <h3 class="mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 md:hidden">{{ Auth::user()->name }}</h3>
+                          <h3 class="mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 hidden lg:block">{{ Auth::user()->name }}</h3>
                       </button>
                     <ul class="dropdown-menu min-w-max absolute bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0" aria-labelledby="dropdownMenuButton2">
                       <li>
-                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-slate-500 hover:text-white" href="#">{{ Auth::user()->name }}</a>
+                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-slate-500 hover:text-white" href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-slate-500 hover:text-white" href="{{ route('article.index') }}">Your Articles</a>
                       </li>
                       <li>
                         <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-slate-500 hover:text-white" href="{{ route('dashboard') }}">Dashboard</a>
@@ -109,6 +110,7 @@
         </div>
 
         <div class="py-3 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden">
+            <a class="mx-4 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0 uppercase {{ Route::is('home') && !request()->has('category') ? 'font-black text-blue-600' : null }}" href="{{ route('home') }}">Home</a>
             @foreach ($categories as $category)
                 <a class="mx-4 text-sm leading-5 {{ request('category') == $category->slug ? 'font-black text-blue-600' : null }} text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0 uppercase" href="{{ url('?category='.$category->slug) }}">{{ $category->name }}</a>
             @endforeach

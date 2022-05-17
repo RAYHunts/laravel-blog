@@ -2,8 +2,8 @@
     <x-navbar/>
     <main>
       {{-- articles --}}
-      <section class="grid grid-cols-5 gap-3 px-3 md:px-12 xl:px-32 mt-36 mb-12  min-h-screen">
-            <div class="col-span-5">
+      <section class="grid lg:grid-cols-5 gap-3 px-3 md:px-12 xl:px-32 mt-36 mb-12  min-h-screen place-items-center lg:place-items-start">
+            <div class="col-span-5 w-full">
                 @if(request()->has('search'))
                 <h1 class="text-5xl text-center font-black p-3 text-slate-800 dark:text-slate-400">Results for "{{ request('search') }}"</h1>
                 @elseif(request()->has('category'))
@@ -54,11 +54,11 @@
                     </div>
                 </div>
                 @else
-                <h1 class="text-5xl text-center font-black p-3 text-slate-800 dark:text-slate-400">{{ $heading }}</h1>
+                <h1 class="text-5xl text-center w-full font-black p-3 text-slate-800 dark:text-slate-400">{{ $heading }}</h1>
                 @endif
             </div>
             <x-trending/>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 float-right col-span-5 {{ request()->has('page') ? 'lg:col-span-5 lg:grid-cols-3' : 'lg:col-span-3'  }} lg:col-span-3 px-auto h-max">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 col-span-5 place-items-end {{ request()->has('page') ? 'lg:col-span-5 lg:grid-cols-3' : 'lg:col-span-3'  }}  px-auto h-max w-full container">
                 @foreach ($articles as $article)     
                 <div class="mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 h-full w-full">
                     <div class="overflow-hidden  w-full h-64">
@@ -66,11 +66,11 @@
                             <img class="object-cover w-full h-full hover:scale-110 transition-all duration-200 ease-linear" src="{{ asset($article->image) }}" alt="{{ $article->caption }}">
                         </a>
                     </div>
-            
                     <div class="p-6">
                         <div>
                             <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">{{ $article->category->name }}</span>
                             <a href="{{ route('article', $article->slug) }}" class="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white hover:text-gray-600 hover:underline  line-clamp-2">{{ $article->title }}</a>
+                            <p class="text-xs font-medium line-clamp-2">{{ $article->excerpt }}</p>
                         </div>
             
                         <div class="mt-4">
@@ -88,10 +88,13 @@
                 </div>
                 @endforeach
             </div>
-            <div class="col-span-5 order-last">
+            <div class="col-span-5 order-last w-full">
                 {{ $articles->links() }}
             </div>
         </section>
     </main>
     <x-footer/>
     </x-main>
+
+
+    

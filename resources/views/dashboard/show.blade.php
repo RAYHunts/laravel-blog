@@ -27,7 +27,7 @@
                     <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-200 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500 uppercase">{{ $article->category->name }}</a>
                 </div>
             <article class="whitespace-pre-line text-justify leading-relaxed">
-                {{ $article->content }}
+                {!! $article->content !!}
             </article>
             <div class="flex items-center justify-end">
                 <a href="{{ url('?author='.$article->author->username) }}" class="font-semibold text-gray-700 dark:text-gray-200 flex gap-2 items-center">

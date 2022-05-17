@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,15 @@ use App\Http\Controllers\UserController;
 
 // Path: routes\web.php
 Route::get('/', [ArticleController::class, 'index'])->name('home');
+
+Route::middleware(['auth', 'verified', 'developer'])->group(function () {
+    Route::get('/migrate-fresh', function () {
+        Artisan::call('migrate:fresh');
+        return redirect()->back();
+    });
+});
+
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
@@ -45,6 +55,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::resource('/dashboard/category', CategoryController::class);
     Route::resource('/dashboard/users', UserController::class);
     Route::get('/dashboard/all_articles', [PostController::class, 'all'])->name('all_articles');
+    Route::get('/migrate-seed', function () {
+        Artisan::call('migrate:refresh');
+        Artisan::call('db:seed');
+        return 'migration success';
+    });
 });
 
 require __DIR__ . '/auth.php';

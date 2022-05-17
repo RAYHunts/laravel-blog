@@ -5,7 +5,23 @@
     .scroll-hidden::-webkit-scrollbar {
         height: 0px;
         background: transparent; /* make scrollbar transparent */
+        width: 0 !important;
     }
+    .scroll-hidden::-webkit-scrollbar-thumb {
+        width: 0 !important;
+        background: rgba(0, 0, 0, 0.5);
+        border: solid 3px transparent;
+        background-clip: content-box;
+        border-radius: 17px;
+    }
+
+    .scroll-y-beautify::-webkit-scrollbar {
+        @apply w-2 rounded-r-sm bg-slate-200 dark:bg-slate-700;
+    }
+    .scroll-y-beautify::-webkit-scrollbar-thumb {
+        @apply bg-slate-500 dark:bg-slate-800 rounded-sm;
+    }
+
     trix-toolbar [data-trix-button-group="file-tools"] {
         @apply hidden;
     }

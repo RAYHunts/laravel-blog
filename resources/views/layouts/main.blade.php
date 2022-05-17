@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
     <script type="text/javascript" src="{{  asset('js/trix.js') }}"></script>
 </head>
-    <body class="bg-slate-400 dark:bg-gradient-to-br from-gray-800 via-slate-900 to-black font-monts">
+    <body class="bg-slate-400 dark:bg-gradient-to-br from-gray-800 via-slate-900 to-black font-monts scroll-y-beautify">
         
         {{ $slot }}
     <script src="{{ asset('js/app.js') }}"></script>

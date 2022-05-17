@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content');
+            $table->text('excerpt');
             $table->string('image')->nullable();
             $table->string('caption')->nullable();
             $table->integer('views')->default(0);

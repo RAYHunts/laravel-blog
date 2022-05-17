@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
         User::factory(10)->create();
-        Category::factory(5)->create();
+        Category::factory(20)->create();
         Article::factory(200)->create();
         Adv::factory(5)->create();
     }

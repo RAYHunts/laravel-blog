@@ -38,14 +38,4 @@ class ArticleController extends Controller
             'advs' => Adv::all(),
         ]);
     }
-    public function trending()
-    {
-        return view('trending', [
-            'title' => 'Trending articles',
-            'articles' => Article::with(['author', 'category'])->trending()->limit(5)->get(),
-            'categories' => Category::all(),
-            'articles_all' => Article::with(['author', 'category'])->latest('published_at')->get(),
-            'advs' => Adv::all(),
-        ]);
-    }
 }

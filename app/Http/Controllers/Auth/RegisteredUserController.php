@@ -42,7 +42,6 @@ class RegisteredUserController extends Controller
         ]);
 
         $valid['password'] = Hash::make($valid['password']);
-        $valid['role'] = 'user';
 
         $user = User::create($valid);
 
