@@ -1,4 +1,4 @@
-<x-main :title="__('Title')" :desc="__('Desk')">
+<x-main :title="__('Title')" :thumb="__('img/logo/icon.png')">
     <x-navbar/>
     <main>
       {{-- articles --}}

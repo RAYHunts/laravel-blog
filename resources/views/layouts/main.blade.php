@@ -20,18 +20,19 @@
     {{-- Open Graph / Facebook --}}
     {{-- Open Graph / Facebook --}}
     {{--  Open Graph / Facebook  --}}
+    {{-- app id --}}
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? config('app.name', null) }}">
     <meta property="og:description" content="{{ $description ?? null }}">
-    <meta property="og:image" content="{{ asset('storage/'.$thumb) ?? asset('img/logo/icon.png') }}">
+    <meta property="og:image" content="{{ asset('storage/'.$thumb) }}">
     {{-- Twitter --}}
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="{{ $description ?? null }}">
     <meta property="twitter:description" content="{{ $thumb ?? 'Welcome' }}">
-    <meta property="twitter:image" content="{{ asset('storage/'.$thumb) ?? asset('storage/img/logo/icon.png') }}">
+    <meta property="twitter:image" content="{{ asset('storage/'.$thumb) }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- font awesome cdn latest --}}
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@18657a9/css/all.min.css" rel="stylesheet" type="text/css" />
