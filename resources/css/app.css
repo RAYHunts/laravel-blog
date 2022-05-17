@@ -21,6 +21,12 @@
     .scroll-y-beautify::-webkit-scrollbar-thumb {
         @apply bg-slate-500 dark:bg-slate-800 rounded-sm;
     }
+    .scroll-beautify::-webkit-scrollbar {
+        @apply w-2 rounded-r-sm bg-slate-200 dark:bg-slate-700 h-2;
+    }
+    .scroll-beautify::-webkit-scrollbar-thumb {
+        @apply bg-slate-500 dark:bg-slate-800 rounded-sm;
+    }
 
     trix-toolbar [data-trix-button-group="file-tools"] {
         @apply hidden;

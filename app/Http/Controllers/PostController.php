@@ -180,4 +180,25 @@ class PostController extends Controller
             'articles' => Article::all(),
         ]);
     }
+    public function publish(Article $article)
+    {
+        if ($article->author->id == auth()->id() || auth()->user()->role === 'admin' || auth()->user()->role === 'developer') {
+            Article::where('id', $article->id)->update([
+                'status' => 'published',
+            ]);
+            return back()->with('success', 'Article has been published');
+        }
+        return back()->with('error', 'You are not authorized to publish this article');
+    }
+
+    public function takeDown(Article $article)
+    {
+        if ($article->author->id == auth()->user()->id || auth()->user()->role === 'admin' || auth()->user()->role === 'developer') {
+            Article::where('id', $article->id)->update([
+                'status' => 'draft',
+            ]);
+            return back()->with('success', 'Article has been taken down');
+        }
+        return back()->with('error', 'You are not authorized to take down this article');
+    }
 }

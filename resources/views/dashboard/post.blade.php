@@ -22,8 +22,8 @@
         @endif
 
         @if(count($articles) > 0)
-        <table class="flex flex-col w-full rounded-md overflow-hidden text-center shadow-sm shadow-slate-900/50">
-          <thead class="border-b bg-gray-800 border-gray-900 text-slate-300 relative pr-2">
+        <table class="flex flex-col rounded-md overflow-scroll  text-center shadow-sm shadow-slate-900/50 scroll-beautify">
+          <thead class="border-b bg-gray-800 border-gray-900 text-slate-300 relative w-full min-w-max">
             <tr class="flex justify-between">
               <th scope="col" class="text-sm font-medium px-6 py-4 w-12">
                 No.
@@ -38,32 +38,51 @@
                 Views
               </th>
               <th scope="col" class="text-sm font-medium px-6 py-4 w-48">
+                Status
+              </th>
+              <th scope="col" class="text-sm font-medium px-6 py-4 w-48">
                 Action
               </th>
             </tr>
           </thead>
-          <tbody class="overflow-y-scroll w-full h-[70vh] scroll-y-beautify">
+          <tbody class="w-full min-w-max h-[70vh]">
               @foreach ($articles as $article)
-            <tr class="odd:bg-gray-50 bg-slate-400 w-full flex justify-between items-center">
-              <td class="text-sm text-gray-900 font-medium px-6 py-4 w-12">
+            <tr class="odd:bg-gray-50 bg-slate-400 w-full flex justify-between items-center py-2">
+              <td class="text-gray-900 font-medium px-6 w-12">
                 {{ $loop->iteration }}
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap uppercase w-48">
+              <td class="text-gray-900 font-light px-6 w-48">
                 {{ $article->title }}
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap uppercase w-48">
+              <td class="text-gray-900 font-light px-6uppercase w-48">
                 {{ $article->category->name }}
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap uppercase w-48">
+              <td class="text-gray-900 font-light px-6 w-48">
                   {{ $article->views }}
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center w-48">
+              <td class="text-gray-900 font-light px-6 w-48">
+                @if($article->status == 'published')
+                <form method="POST" action="{{ route('article.takedown',$article->slug) }}">
+                  @csrf
+                <a href="{{ route('article.takedown',$article->slug) }}" onclick="event.preventDefault();
+                this.closest('form').submit();" class="inline-block rounded-sm px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none focus:ring-0 active:bg-indigo-800 transition duration-150 ease-in-out">Published</a>
+            </form>
+                @else
+                <form method="POST" action="{{ route('article.publish',$article->slug) }}">
+                    @csrf
+                    <a href="{{ route('article.publish',$article->slug) }}" onclick="event.preventDefault();
+                  this.closest('form').submit();" class="inline-block rounded-sm px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none focus:ring-0 active:bg-indigo-800 transition duration-150 ease-in-out">Draft</a>
+              </form>
+                @endif
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 whitespace-nowrap text-center w-48">
                   <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg rounded overflow-clip" role="group">
                       <a href="{{ route('article.edit',$article->slug) }}" type="button" class="inline-block px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none focus:ring-0 active:bg-indigo-800 transition duration-150 ease-in-out"><i class="fa-solid fa-pen-to-square"></i></a>
                       <form action="{{ route('article.destroy',$article->slug) }}" method="post">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-red-700 focus:bg-red-700 focus:outline-none focus:ring-0 active:bg-red-800 transition duration-150 ease-in-out" data-bs-toggle="tooltip" data-bs-placement="right" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                          <a href="{{ route('article.destroy',$article->slug) }}" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-red-700 focus:bg-red-700 focus:outline-none focus:ring-0 active:bg-red-800 transition duration-150 ease-in-out" onclick="event.preventDefault();
+                          this.closest('form').submit();"><i class="fa-solid fa-trash"></i></a>
                       </form>
                   </div>
               </td>

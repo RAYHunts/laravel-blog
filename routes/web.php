@@ -42,6 +42,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('dashboard.index');
     })->name('dashboard');
     Route::resource('/dashboard/article', PostController::class);
+    Route::post('/dashboard/article/{article}/publish', [PostController::class, 'publish'])->name('article.publish');
+    Route::post('/dashboard/article/{article}/take-down', [PostController::class, 'takeDown'])->name('article.takedown');
     Route::get('/dashboard/profile', [UserController::class, 'profile'])->name('profile');
 });
 Route::get('/carousel', function () {

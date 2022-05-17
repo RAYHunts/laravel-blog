@@ -1,4 +1,6 @@
 @if(!request()->has('page'))
+    @if($trending->count() > 0)
+        
 <div class="flex gap-3 flex-col bg-white/5 rounded-md justify-start backdrop-blur-sm p-6 col-span-5 lg:col-span-2 lg:order-3 container h-max">
     <div class=" py-4 font-bold text-3xl text-slate-700 dark:text-slate-400">
         <h1>Trendings <i class="fa-solid fa-arrow-trend-up"></i></h1>
@@ -22,4 +24,5 @@
             </div>
         @endforeach
     </div>
+    @endif
 @endif
