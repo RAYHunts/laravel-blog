@@ -11,6 +11,17 @@
                     New Article
                 </a>
         </div>
+        @if(session('success'))
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
+                {{ session('success') }}
+            </div>
+        @elseif(session('error'))
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        @if(count($articles) > 0)
         <table class="flex flex-col w-full rounded-md overflow-hidden text-center shadow-sm shadow-slate-900/50">
           <thead class="border-b bg-gray-800 border-gray-900 text-slate-300 relative pr-2">
             <tr class="flex justify-between">
@@ -48,8 +59,8 @@
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center w-48">
                   <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg rounded overflow-clip" role="group">
-                      <button type="button" class="inline-block px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none focus:ring-0 active:bg-indigo-800 transition duration-150 ease-in-out"><i class="fa-solid fa-pen-to-square"></i></button>
-                      <form action="{{ route('category.destroy',$article->slug) }}" method="post">
+                      <a href="{{ route('article.edit',$article->slug) }}" type="button" class="inline-block px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none focus:ring-0 active:bg-indigo-800 transition duration-150 ease-in-out"><i class="fa-solid fa-pen-to-square"></i></a>
+                      <form action="{{ route('article.destroy',$article->slug) }}" method="post">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-red-700 focus:bg-red-700 focus:outline-none focus:ring-0 active:bg-red-800 transition duration-150 ease-in-out" data-bs-toggle="tooltip" data-bs-placement="right" title="Delete"><i class="fa-solid fa-trash"></i></button>
@@ -60,6 +71,15 @@
               @endforeach
           </tbody>
         </table>
+        @else
+        <div class="flex flex-col w-full rounded-md overflow-hidden shadow-sm shadow-slate-900/50">
+            <div class="flex justify-center items-center">
+                <div class="text-center text-gray-900 font-light px-6 py-4 whitespace-nowrap uppercase w-48">
+                    No Articles
+                </div>
+            </div>
+        </div>
+        @endif
     </section>
     </main>
 </x-main>

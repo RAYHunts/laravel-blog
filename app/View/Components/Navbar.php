@@ -17,7 +17,8 @@ class Navbar extends Component
 
     public function __construct()
     {
-        $this->categories = Category::all();
+        // all categories that have at least one article
+        $this->categories = Category::with('articles')->has('articles')->get();
     }
 
     /**

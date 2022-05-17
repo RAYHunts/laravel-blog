@@ -97,7 +97,7 @@ class CategoryController extends Controller
             return redirect()->route('category.index')->with('error', 'Category has articles');
         }
         $category->delete();
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('success', 'Category deleted');
     }
     // cek slug
     public function checkSlug(Request $request)

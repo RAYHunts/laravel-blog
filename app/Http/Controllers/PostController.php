@@ -117,7 +117,13 @@ class PostController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view(
+            'dashboard.edit-post',
+            [
+                'article' => $article,
+                'categories' => Category::all(),
+            ]
+        );
     }
 
     /**
@@ -129,7 +135,23 @@ class PostController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $validated = $request->validate([
+            // title unique
+            'title' => 'required|max:255',
+            'content' => 'required',
+            'category_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'caption' => 'max:255',
+        ]);
+        $validated['slug'] = SlugService::createSlug(Article::class, 'slug', $validated['title']);
+        $validated['image'] = $request->file('image')->store('img/posts');
+        $validated['excerpt'] = Str::limit(strip_tags($request->content), 200);
+        $validated['user_id'] = auth()->id();
+        $validated['published_at'] = now();
+        $validated['status'] = 'published';
+        // Article update
+        Article::where('id', $article->id)->update($validated);
+        return redirect()->route('article.index');
     }
 
     /**
@@ -143,14 +165,11 @@ class PostController extends Controller
         // if ($article->image) {
         //     Storage::delete($article->image);
         // }
-        if ($article->author->id != auth()->user()->id || auth()->user()->role != 'admin') {
-            return redirect()->route('article.index')->with('error', 'You do not have permition to delete this article');
+        if ($article->author->id === auth()->id() || auth()->user()->role === 'admin' || auth()->user()->role === 'developer') {
+            Article::destroy($article->id);
+            return back()->with('success', 'Article has been deleted');
         }
-        Article::destroy($article->id);
-        if (auth()->user()->role != 'admin') {
-            return redirect()->route('all_articles')->with('success', 'Article has been deleted');
-        }
-        return redirect()->route('article.index')->with('success', 'Article has been deleted');
+        return back()->with('error', 'You are not authorized to delete this article');
     }
 
 
