@@ -11,14 +11,14 @@ Project ini memakan waktu 2 minggu setelah saya marathon playlist tersebut kira-
 
 Dalam project ini teknologi yang saya gunakan yaitu:
 
-> Laravel 9.8
-> Laravel Mix
-> Laravel Breeze
-> TailwindCSS
-> tw-elements
-> Merakiui
-> Git Version Control
-> Github Copilot
+> > > Laravel 9.8
+> > > Laravel Mix
+> > > Laravel Breeze
+> > > TailwindCSS
+> > > tw-elements
+> > > Merakiui
+> > > Git Version Control
+> > > Github Copilot
 
 Credential untuk login bisa didaftarkan di langsung di website-nya.
 
