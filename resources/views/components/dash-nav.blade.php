@@ -29,8 +29,8 @@
                         <div class="dropdown relative">
                             <button type="button" class="dropdown-toggle focus:outline-none flex items-center hidden-arrow" href="#" id="dropdownMenuButton2" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
+                                <div class="w-8 h-8 overflow-hidden rounded-full">
+                                    <img src="{{ asset('storage/'.Auth::user()->image) }}" class="object-cover w-full h-full" alt="avatar">
                                 </div>
                                 <h3 class="mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 hidden md:block">{{ Auth::user()->name }}</h3>
                             </button>

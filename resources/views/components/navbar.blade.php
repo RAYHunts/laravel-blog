@@ -31,7 +31,7 @@
                 <!-- Mobile menu button -->
                 <div class="flex md:hidden gap-2">
 
-                    <button type="button" class="w-8 h-8 flex items-center justify-center bg-slate-100 hover:bg-slate-200 transition duration-150 rounded-full false md:hidden" data-toggle="toggle-dark"><i class="fa-solid fa-moon"></i></button>
+                  <button type="button" class="w-8 h-8  items-center justify-center bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:text-gray-200 text-gray-700 transition duration-150 rounded-full false block md:hidden" data-toggle="toggle-dark"><i class="fa-solid fa-moon"></i></button>
                     <button type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu" id="toggle">
                         <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
                             <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
@@ -42,8 +42,9 @@
 
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
             <div class="items-center md:flex hidden flex-nowrap" id="collapse">
-                <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1 lg:items-center">
+                <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1 md:items-center">
                     <button type="button" class="w-8 h-8  items-center justify-center bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:text-gray-200 text-gray-700 transition duration-150 rounded-full false hidden md:block" data-toggle="toggle-dark"><i class="fa-solid fa-moon"></i></button>
+                    <hr class="w-px h-6 bg-slate-200 mx-3 hidden md:block">
                 </div>
                 <div class="flex items-center py-2 -mx-1 md:mx-0">
                   @if(Auth::check())
