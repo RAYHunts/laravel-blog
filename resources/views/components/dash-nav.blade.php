@@ -70,7 +70,7 @@
         </nav>
         <aside
             id="sidebar"
-            class="flex flex-col fixed z-20 left-0 top-0 lg:translate-x-0 transform h-screen w-64 shrink-0  p-4 transition-all duration-200 ease-in-out -translate-x-64 bg-white shadow dark:bg-gray-800">
+            class="flex flex-col fixed z-20 left-0 top-0 lg:translate-x-0 transform h-screen w-64 shrink-0  p-4 transition-transform duration-200 ease-in-out -translate-x-64 bg-white shadow dark:bg-gray-800">
             </div>
             <div class="flex flex-col gap-2 dark:text-slate-300 mt-16">
                 <h3 class="text-xs uppercase text-slate-500 font-semibold border-b-2 border-slate-500 pb-3">Author</h3>
