@@ -61,7 +61,10 @@ class Article extends Model
     public function scopeTrending($query)
     {
         return $query->orderBy('views', 'desc')
-            ->where('published_at', '>=', now()->subDays(90));
+            ->where('published_at', '>=', now()->subDays(90))->with([
+                'category',
+                'author',
+            ])->published();
     }
     public function scopePublished($query)
     {

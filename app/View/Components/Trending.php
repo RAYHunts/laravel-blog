@@ -25,7 +25,7 @@ class Trending extends Component
     public function render()
     {
         return view('components.trending', [
-            'trending' => Article::main()->trending()->limit(5)->get()
+            'trending' => Article::trending()->take(5)->get(),
         ]);
     }
 }
