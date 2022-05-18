@@ -27,7 +27,12 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? config('app.name', null) }}">
     <meta property="og:description" content="{{ $description ?? null }}">
-    <meta property="og:image" content="{{ asset('storage/'.$thumb) }}">
+
+    @if(isset($thumb))
+        <meta property="og:image" content="{{ asset('storage/'.$thumb) }}">
+        @else
+        <meta property="og:image" content="{{ asset('img/logo/thumb.png') }}">
+    @endif
     {{-- Twitter --}}
 
     <meta property="twitter:card" content="summary_large_image">
