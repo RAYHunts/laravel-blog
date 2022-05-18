@@ -58,41 +58,18 @@ class PostController extends Controller
             'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'caption' => 'max:255',
+            'status' => 'required',
         ]);
+        if ($validated['status'] == 'published') {
+            $validated['published_at'] = now();
+        }
         $validated['slug'] = SlugService::createSlug(Article::class, 'slug', $validated['title']);
         $validated['image'] = $request->file('image')->store('img/posts');
         $validated['excerpt'] = Str::limit(strip_tags($request->content), 200);
         $validated['user_id'] = auth()->id();
-        $validated['published_at'] = now();
-        $validated['status'] = 'published';
         Article::create($validated);
         return redirect()->route('article.index');
     }
-
-    public function draft(Request $request)
-    {
-        $request->validate([
-            // title unique
-            'title' => 'required|max:255',
-            'content' => 'required',
-            'category' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'captions' => 'max:255',
-        ]);
-
-        Article::create([
-            'title' => $request->title,
-            'slug' => SlugService::createSlug(Article::class, 'slug', $request->title),
-            'content' => $request->content,
-            'excerpt' => Str::limit(strip_tags($request->content), 200),
-            'category' => $request->category,
-            'image' => $request->image,
-            'captions' => $request->captions,
-            'user_id' => auth()->id(),
-        ]);
-        return redirect()->route('article.index');
-    }
-
     /**
      * Display the specified resource.
      *
