@@ -26,6 +26,9 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? config('app.name', null) }}">
+    @if(isset($description))
+        <meta property="og:description" content="{{ $description }}">
+    @endif
     <meta property="og:description" content="{{ $description ?? null }}">
 
     @if(isset($thumb))
@@ -37,8 +40,10 @@
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="{{ $description ?? null }}">
-    <meta property="twitter:description" content="{{ $thumb ?? 'Welcome' }}">
+    <meta property="twitter:title" content="{{ $title ?? config('app.name', null) }}">
+    @if(isset($description))
+        <meta property="twitter:description" content="{{ $description }}">
+    @endif
     @if(isset($thumb))
         <meta property="twitter:image" content="{{ asset('storage/'.$thumb) }}">
         @else
