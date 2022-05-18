@@ -3,7 +3,7 @@
         <nav class="fixed top-0 bg-white shadow dark:bg-gray-800 border-b border-slate-200 dark:border-slate-600 z-30 w-full">
             <div class="px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16 -mb-px">
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-3">
                         <button
                             class="text-slate-500 hover:text-slate-600 lg:hidden"
                             aria-controls="sidebar"
@@ -22,6 +22,9 @@
                         <a href="{{ route('home') }}">
                             <x-application-logo class="w-12"/>
                         </a>
+                        <div class="text-xl font-black text-slate-900 dark:text-slate-500">
+                            {{ config('app.name') }}
+                        </div>
                     </div>
                     <div class="flex items-center">
                         <button type="button" class="w-8 h-8  items-center justify-center bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:text-gray-200 text-gray-700 transition duration-150 rounded-full false" data-toggle="toggle-dark"><i class="fa-solid fa-moon"></i></button>
