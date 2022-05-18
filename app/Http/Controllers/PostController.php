@@ -146,8 +146,10 @@ class PostController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'caption' => 'max:255',
         ]);
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('img/posts');
+        }
         $validated['slug'] = SlugService::createSlug(Article::class, 'slug', $validated['title']);
-        $validated['image'] = $request->file('image')->store('img/posts');
         $validated['excerpt'] = Str::limit(strip_tags($request->content), 200);
         // Article update
         if ($article->author->id === auth()->id() || auth()->user()->role === 'admin' || auth()->user()->role === 'developer') {
