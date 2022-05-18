@@ -117,13 +117,16 @@ class PostController extends Controller
      */
     public function edit(Article $article)
     {
-        return view(
-            'dashboard.edit-post',
-            [
-                'article' => $article,
-                'categories' => Category::all(),
-            ]
-        );
+        if ($article->author->id == auth()->id() || auth()->user()->role == 'admin' || auth()->user()->role == 'developer') {
+            return view(
+                'dashboard.edit-post',
+                [
+                    'article' => $article,
+                    'categories' => Category::all(),
+                ]
+            );
+        }
+        return redirect()->route('article.index')->with('error', 'You are not authorized to edit this article');
     }
 
     /**
@@ -146,12 +149,12 @@ class PostController extends Controller
         $validated['slug'] = SlugService::createSlug(Article::class, 'slug', $validated['title']);
         $validated['image'] = $request->file('image')->store('img/posts');
         $validated['excerpt'] = Str::limit(strip_tags($request->content), 200);
-        $validated['user_id'] = auth()->id();
-        $validated['published_at'] = now();
-        $validated['status'] = 'published';
         // Article update
-        Article::where('id', $article->id)->update($validated);
-        return redirect()->route('article.index');
+        if ($article->author->id === auth()->id() || auth()->user()->role === 'admin' || auth()->user()->role === 'developer') {
+            Article::where('id', $article->id)->update($validated);
+            return redirect()->route('article.index')->with('success', 'Article updated successfully');
+        }
+        return redirect()->route('article.index')->with('error', 'You are not authorized to edit this article');
     }
 
     /**

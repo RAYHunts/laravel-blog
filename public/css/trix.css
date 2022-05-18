@@ -8,8 +8,7 @@ trix-editor {
     border-radius: 3px;
     margin: 0;
     padding: 0.4em 0.6em;
-    min-height: 5em;
-    height: 250px;
+    min-height: 250px;
     outline: none;
 }
 trix-toolbar * {

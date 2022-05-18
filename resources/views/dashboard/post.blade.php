@@ -71,7 +71,7 @@
                 <form method="POST" action="{{ route('article.publish',$article->slug) }}">
                     @csrf
                     <a href="{{ route('article.publish',$article->slug) }}" onclick="event.preventDefault();
-                  this.closest('form').submit();" class="inline-block rounded-sm px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none focus:ring-0 active:bg-indigo-800 transition duration-150 ease-in-out">Draft</a>
+                  this.closest('form').submit();" class="inline-block rounded-sm px-6 py-2.5 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase hover:bg-yellow-700 focus:bg-yellow-700 focus:outline-none focus:ring-0 active:bg-yellow-800 transition duration-150 ease-in-out">Draft</a>
               </form>
                 @endif
               </td>
