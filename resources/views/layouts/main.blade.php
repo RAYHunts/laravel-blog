@@ -29,8 +29,6 @@
     @if(isset($description))
         <meta property="og:description" content="{{ $description }}">
     @endif
-    <meta property="og:description" content="{{ $description ?? null }}">
-
     @if(isset($thumb))
         <meta property="og:image" content="{{ asset('storage/'.$thumb) }}">
         @else
