@@ -50,7 +50,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // return ddd($request);
         $validated = $request->validate([
             // title unique
             'title' => 'required|max:255',
@@ -58,9 +57,8 @@ class PostController extends Controller
             'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'caption' => 'max:255',
-            'status' => 'required',
         ]);
-        if ($validated['status'] == 'published') {
+        if ($request->has('publish')) {
             $validated['published_at'] = now();
         }
         $validated['slug'] = SlugService::createSlug(Article::class, 'slug', $validated['title']);
@@ -68,7 +66,7 @@ class PostController extends Controller
         $validated['excerpt'] = Str::limit(strip_tags($request->content), 200);
         $validated['user_id'] = auth()->id();
         Article::create($validated);
-        return redirect()->route('article.index');
+        return redirect()->route('article.index')->with('success', 'Article created successfully');
     }
     /**
      * Display the specified resource.
