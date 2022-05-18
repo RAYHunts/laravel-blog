@@ -34,6 +34,11 @@
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="{{ $description ?? null }}">
     <meta property="twitter:description" content="{{ $thumb ?? 'Welcome' }}">
+    @if(isset($thumb))
+        <meta property="twitter:image" content="{{ asset('storage/'.$thumb) }}">
+        @else
+        <meta property="twitter:image" content="{{ asset('img/logo/thumb.png') }}">
+    @endif
     <meta property="twitter:image" content="{{ asset('storage/'.$thumb) }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- font awesome cdn latest --}}

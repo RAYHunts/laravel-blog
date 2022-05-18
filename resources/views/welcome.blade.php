@@ -1,4 +1,4 @@
-<x-main :thumb="__('img/logo/icon.png')">
+<x-main>
     <x-navbar/>
     <main>
       {{-- articles --}}
