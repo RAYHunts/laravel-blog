@@ -27,7 +27,7 @@
                 No.
               </th>
               <th scope="col" class="text-sm font-medium px-6 py-4 w-48">
-                Title
+                Name
               </th>
               <th scope="col" class="text-sm font-medium px-6 py-4 w-48">
                 Email
