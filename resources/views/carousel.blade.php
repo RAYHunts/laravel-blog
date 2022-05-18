@@ -18,7 +18,7 @@
                 @foreach ($articles as $article)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                     <div class="w-full h-80">
-                        <img class="w-full h-full object-cover" src="{{ $article->image }}" alt="{{ $article->title }}">
+                        <img class="w-full h-full object-cover" src="{{ asset('storage/'.$article->image) }}" alt="{{ $article->title }}">
                     </div>
                     <div class="carousel-caption absolute bottom-0 left-0 right-0 p-4 text-white text-center">
                         <h1 class="text-4xl font-bold">{{ $article->title }}</h1>
