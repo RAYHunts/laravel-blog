@@ -60,8 +60,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::resource('/dashboard/users', UserController::class);
     Route::get('/dashboard/all_articles', [PostController::class, 'all'])->name('all_articles');
     Route::get('/migrate-seed', function () {
-        Artisan::call('migrate:refresh');
-        Artisan::call('db:seed');
+        Artisan::call('migrate:fresh --seed');
         return 'migration success';
     });
 });

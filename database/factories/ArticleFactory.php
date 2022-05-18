@@ -22,7 +22,7 @@ class ArticleFactory extends Factory
             'content' => $this->faker->paragraph(mt_rand(5, 20)),
             'excerpt' => $this->faker->paragraph(),
             'category_id' => rand(1, 12),
-            'user_id' => rand(1, 12),
+            'user_id' => rand(1, 3),
             'published_at' => $this->faker->dateTimeBetween('-3 month', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
             'created_at' => $this->faker->dateTimeBetween('-3 years', 'now'),

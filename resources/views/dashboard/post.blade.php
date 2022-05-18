@@ -22,7 +22,7 @@
         @endif
 
         @if(count($articles) > 0)
-        <table class="flex flex-col rounded-md overflow-scroll  text-center shadow-sm shadow-slate-900/50 scroll-beautify">
+        <table class="flex flex-col rounded-md overflow-x-scroll text-center shadow-sm shadow-slate-900/50 scroll-beautify">
           <thead class="border-b bg-gray-800 border-gray-900 text-slate-300 relative w-full min-w-max">
             <tr class="flex justify-between">
               <th scope="col" class="text-sm font-medium px-6 py-4 w-12">
@@ -45,7 +45,7 @@
               </th>
             </tr>
           </thead>
-          <tbody class="w-full min-w-max h-[70vh]">
+          <tbody class="w-full min-w-max h-[70vh] overflow-y-scroll scroll-y-beautify ">
               @foreach ($articles as $article)
             <tr class="odd:bg-gray-50 bg-slate-400 w-full flex justify-between items-center py-2">
               <td class="text-gray-900 font-medium px-6 w-12">
