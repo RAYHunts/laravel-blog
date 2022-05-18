@@ -11,72 +11,62 @@
                     New user
                 </a>
         </div>
-        <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="overflow-hidden rounded-md">
-                  <table class="min-w-full">
-                    <thead class="border-b bg-gray-800 border-gray-900 text-slate-300">
-                      <tr>
-                        <th scope="col" class="text-sm font-medium px-6 py-4">
-                          No.
-                        </th>
-                        <th scope="col" class="text-sm font-medium px-6 py-4">
-                          Name
-                        </th>
-                        <th scope="col" class="text-sm font-medium px-6 py-4">
-                          Username
-                        </th>
-                        <th scope="col" class="text-sm font-medium px-6 py-4">
-                          Articles
-                        </th>
-                        <th scope="col" class="text-sm font-medium px-6 py-4">
-                          Views
-                        </th>
-                        <th scope="col" class="text-sm font-medium px-6 py-4">
-                          Action
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                      <tr class="border-b bg-gray-50 border-gray-200">
-                        <td class="text-sm text-gray-900 font-medium px-6 py-4 text-center">
-                          {{ $loop->iteration }}
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{ $user->name }}
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center uppercase">
-                            {{ $user->username }}
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center uppercase">
-                            {{ $user->email }}
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center uppercase">
-                            {{ $user->articles->count() }}
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
-                            <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg rounded overflow-clip" role="group">
-                                <button type="button" class="inline-block px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none focus:ring-0 active:bg-indigo-800 transition duration-150 ease-in-out"><i class="fa-solid fa-pen-to-square"></i></button>
-                                <a href="{{ $user->username }}">
-                                  <button type="button" class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase hover:bg-green-700 focus:bg-green-700 focus:outline-none focus:ring-0 active:bg-green-800 transition duration-150 ease-in-out"><i class="fa-solid fa-eye"></i></button>
-                                </a>
-                                <form action="{{ $user->username }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-red-700 focus:bg-red-700 focus:outline-none focus:ring-0 active:bg-red-800 transition duration-150 ease-in-out" data-bs-toggle="tooltip" data-bs-placement="right" title="Delete"><i class="fa-solid fa-trash"></i></button>
-                                </form>
-                            </div>
-                        </td>
-                      </tr>
-                        @endforeach
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+        @if(session('success'))
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
+                {{ session('success') }}
             </div>
-          </div>
+        @elseif(session('error'))
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+        <table class="flex flex-col rounded-md overflow-x-scroll text-center shadow-sm shadow-slate-900/50 scroll-beautify">
+          <thead class="border-b bg-gray-800 border-gray-900 text-slate-300 relative w-full min-w-max">
+            <tr class="flex justify-between">
+              <th scope="col" class="text-sm font-medium px-6 py-4 w-12">
+                No.
+              </th>
+              <th scope="col" class="text-sm font-medium px-6 py-4 w-48">
+                Title
+              </th>
+              <th scope="col" class="text-sm font-medium px-6 py-4 w-48">
+                Email
+              </th>
+              <th scope="col" class="text-sm font-medium px-6 py-4 w-48">
+                Articles
+              </th>
+              <th scope="col" class="text-sm font-medium px-6 py-4 w-48">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="w-full min-w-max h-[70vh] overflow-y-scroll scroll-y-beautify ">
+              @foreach ($users as $user)
+            <tr class="odd:bg-gray-50 bg-slate-400 w-full flex justify-between items-center py-2">
+              <td class="text-gray-900 font-medium px-6 w-12">
+                {{ $loop->iteration }}
+              </td>
+              <td class="text-gray-900 font-light px-6 w-48">
+                {{ $user->name }}
+              </td>
+              <td class="text-gray-900 font-light px-6uppercase w-48">
+                {{ $user->email }}
+              </td>
+              <td class="text-gray-900 font-light px-6 w-48">
+                  {{ $user->articles->count() }}
+              </td>
+              <td class="text-gray-900 font-semibold px-6 w-48">
+                  @if($user->email_verified_at != null)
+                  <span class="text-green-500 p-2 bg-green-200 dark:bg-indigo-900 dark:text-sky-200">Verified</span>
+                  @else
+                  <span class="text-red-500 p-2 bg-red-300 dark:bg-slate-700 dark:text-slate-200">Not verified</span>
+                  @endif
+              </td>
+              
+            </tr>
+              @endforeach
+          </tbody>
+        </table>
     </section>
     </main>
 </x-main>
