@@ -2,7 +2,7 @@
         <footer class="flex flex-col items-center justify-between px-6 py-4 bg-white dark:bg-gray-800 sm:flex-row">
             <a href="#" class="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">{{ config('app.name', 'Laravel') }}</a>
             
-            <p class="py-2 text-gray-800 dark:text-white sm:py-0">All rights reserved ~ Made by <a class="hover:text-indigo-900 dark:hover:text-indigo-400" href="https://rayhunts.live">rayhunts</a></p>
+            <p class="py-2 text-gray-800 dark:text-white sm:py-0">All rights reserved ~ Made by <a class="hover:text-indigo-900 dark:hover:text-indigo-400 font-semibold" href="https://rayhunts.live">rayhunts</a></p>
 
             <div class="flex -mx-2">
                 <a href="#" class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Reddit">
