@@ -11,7 +11,9 @@
     {{--  Primary Meta Tags  --}}
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
     <meta name="title" content="{{ $title ?? config('app.name', null) }}">
-    <meta name="description" content="{{ $description ?? null }}">
+    @if(isset($description))
+        <meta name="description" content="{{ $description }}">
+    @endif
     <meta name="keywords" content="{{ $keywords ?? null }}">
     {{-- author --}}
     @if(isset($author))
