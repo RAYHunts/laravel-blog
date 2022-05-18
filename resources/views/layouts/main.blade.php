@@ -31,7 +31,7 @@
     @if(isset($thumb))
         <meta property="og:image" content="{{ asset('storage/'.$thumb) }}">
         @else
-        <meta property="og:image" content="{{ asset('img/logo/thumb.png') }}">
+        <meta property="og:image" content="{{ asset('storage/img/logo/thumb.png') }}">
     @endif
     {{-- Twitter --}}
 
@@ -42,9 +42,8 @@
     @if(isset($thumb))
         <meta property="twitter:image" content="{{ asset('storage/'.$thumb) }}">
         @else
-        <meta property="twitter:image" content="{{ asset('img/logo/thumb.png') }}">
+        <meta property="twitter:image" content="{{ asset('storage/img/logo/thumb.png') }}">
     @endif
-    <meta property="twitter:image" content="{{ asset('storage/'.$thumb) }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- font awesome cdn latest --}}
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@18657a9/css/all.min.css" rel="stylesheet" type="text/css" />
