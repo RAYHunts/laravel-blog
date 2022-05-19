@@ -3028,6 +3028,9 @@ textarea.form-control.is-invalid {
 .left-\[9px\] {
   left: 9px;
 }
+.left-1\/2 {
+  left: 50%;
+}
 .z-0 {
   z-index: 0;
 }
@@ -3259,6 +3262,9 @@ textarea.form-control.is-invalid {
 .mt-\[-5px\] {
   margin-top: -5px;
 }
+.mt-28 {
+  margin-top: 7rem;
+}
 .box-content {
   box-sizing: content-box;
 }
@@ -3449,6 +3455,14 @@ textarea.form-control.is-invalid {
 .w-\[2px\] {
   width: 2px;
 }
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.w-72 {
+  width: 18rem;
+}
 .min-w-max {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
@@ -3480,6 +3494,9 @@ textarea.form-control.is-invalid {
 }
 .max-w-md {
   max-width: 28rem;
+}
+.max-w-none {
+  max-width: none;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -3520,6 +3537,14 @@ textarea.form-control.is-invalid {
 }
 .-translate-x-full {
   --tw-translate-x: -100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-rotate-45 {
@@ -3966,11 +3991,18 @@ textarea.form-control.is-invalid {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;
 }
 .bg-opacity-40 {
   --tw-bg-opacity: 0.4;
+}
+.bg-\[url\(\/img\/grid\.svg\)\] {
+  background-image: url(/img/grid.svg);
 }
 .from-gray-800 {
   --tw-gradient-from: #1f2937;
@@ -4204,6 +4236,12 @@ textarea.form-control.is-invalid {
 }
 .pl-6 {
   padding-left: 1.5rem;
+}
+.pt-10 {
+  padding-top: 2.5rem;
+}
+.pb-8 {
+  padding-bottom: 2rem;
 }
 .text-left {
   text-align: left;
@@ -4469,6 +4507,11 @@ textarea.form-control.is-invalid {
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .shadow-slate-900\/50 {
   --tw-shadow-color: rgb(15 23 42 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
@@ -4494,6 +4537,9 @@ textarea.form-control.is-invalid {
 .ring-black {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity));
+}
+.ring-gray-900\/5 {
+  --tw-ring-color: rgb(17 24 39 / 0.05);
 }
 .ring-opacity-5 {
   --tw-ring-opacity: 0.05;
@@ -4599,6 +4645,10 @@ reset-button:focus {
 }
 reset-button:active {
   background-color: transparent;
+}
+.\[mask-image\:linear-gradient\(180deg\2c white\2c rgba\(255\2c 255\2c 255\2c 0\)\)\] {
+  -webkit-mask-image: linear-gradient(180deg,white,rgba(255,255,255,0));
+          mask-image: linear-gradient(180deg,white,rgba(255,255,255,0));
 }
 .before\:absolute::before {
   content: var(--tw-content);
@@ -5305,6 +5355,10 @@ reset-button:active {
     max-width: 28rem;
   }
 
+  .sm\:max-w-lg {
+    max-width: 32rem;
+  }
+
   .sm\:flex-1 {
     flex: 1 1 0%;
   }
@@ -5379,6 +5433,16 @@ reset-button:active {
   .sm\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+
+  .sm\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .sm\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   .sm\:pt-0 {

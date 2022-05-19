@@ -105,7 +105,7 @@
                 Developer
             </x-side-item>
             <x-side-item href="{{ url('/') }}" icon="fa-solid fa-database">
-                Add Developer
+                Migration
             </x-side-item>
         </ul>
         @endcan
