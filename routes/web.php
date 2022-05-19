@@ -63,6 +63,10 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Artisan::call('migrate:fresh --seed');
         return 'migration success';
     });
+    Route::get('/seed-data', function () {
+        Artisan::call('db:seed');
+        return 'seed success';
+    });
 });
 
 require __DIR__ . '/auth.php';

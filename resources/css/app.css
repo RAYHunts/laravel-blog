@@ -40,7 +40,7 @@
         @apply mb-0.5 last:mb-0;
     }
     aside > div > ul > li.active {
-        @apply bg-slate-900 dark:bg-slate-400 text-slate-400 dark:text-slate-900;
+        @apply bg-slate-900 dark:bg-slate-400 text-slate-400 dark:text-slate-900 font-semibold;
     }
     aside > div > ul > li > a > div {
         @apply flex items-center px-3 py-2 hover:bg-slate-900 dark:hover:bg-slate-400 transition-all duration-300 ease-in-out dark:hover:text-slate-800 hover:text-slate-300 rounded-sm;
