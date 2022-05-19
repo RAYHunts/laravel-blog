@@ -28,7 +28,7 @@ class ArticleFactory extends Factory
             'created_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
             'status' => $this->faker->randomElement(['draft', 'published']),
             'views' => rand(1, 100),
-            'image' => $this->faker->imageUrl(),
+            'image' => 'no-image.jpg',
             'caption' => $this->faker->sentence(),
         ];
     }
