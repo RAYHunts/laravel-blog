@@ -11,18 +11,10 @@
                     New Article
                 </a>
         </div>
-        @if(session('success'))
-            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
-                {{ session('success') }}
-            </div>
-        @elseif(session('error'))
-            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
-                {{ session('error') }}
-            </div>
-        @endif
+        <x-alert/>
         @if(count($articles) > 0)
         <table class="flex flex-col rounded-md overflow-x-scroll text-center shadow-sm shadow-slate-900/50 scroll-beautify">
-          <thead class="border-b bg-gray-800 border-gray-900 text-slate-300 relative w-full min-w-max">
+          <thead class="border-b bg-gray-800 border-gray-900 text-slate-300 relative w-full min-w-max pr-2">
             <tr class="flex justify-between">
               <th scope="col" class="text-sm font-medium px-6 py-4 w-12">
                 No.

@@ -26,10 +26,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? config('app.name', null) }}">
-    @if(isset($description))
+    @if($description)
         <meta property="og:description" content="{{ $description }}">
     @endif
-    @if(isset($thumb))
+    @if($thumb)
         <meta property="og:image" content="{{ asset('storage/'.$thumb) }}">
         @else
         <meta property="og:image" content="{{ asset('storage/img/logo/thumb.png') }}">
@@ -39,10 +39,10 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="{{ $title ?? config('app.name', null) }}">
-    @if(isset($description))
+    @if($description)
         <meta property="twitter:description" content="{{ $description }}">
     @endif
-    @if(isset($thumb))
+    @if($thumb)
         <meta property="twitter:image" content="{{ asset('storage/'.$thumb) }}">
         @else
         <meta property="twitter:image" content="{{ asset('storage/img/logo/thumb.png') }}">
@@ -55,7 +55,6 @@
     <script type="text/javascript" src="{{  asset('js/trix.js') }}"></script>
 </head>
     <body class="bg-slate-400 dark:bg-gradient-to-br from-gray-800 via-slate-900 to-black font-monts scroll-y-beautify">
-        
         {{ $slot }}
     <script src="{{ asset('js/app.js') }}"></script>
     </body>
