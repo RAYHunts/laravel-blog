@@ -1,4 +1,3 @@
-// require("./bootstrap");
 import "tw-elements";
 const toggleNav = document.getElementById("toggle");
 const collapse = document.getElementById("collapse");
@@ -36,9 +35,3 @@ toggleDark.forEach(function (item) {
 toggleNav.addEventListener("click", () => {
     collapse.classList.toggle("hidden");
 });
-
-import Alpine from "alpinejs";
-
-window.Alpine = Alpine;
-
-Alpine.start();

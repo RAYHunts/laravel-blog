@@ -1,15 +1,13 @@
 <x-main>
     <x-navbar/>
     <main>
-      {{-- articles --}}
-      <section class="grid lg:grid-cols-5 gap-3 px-3 md:px-12 xl:px-32 mt-36 mb-12  min-h-screen place-items-center lg:place-items-start">
+        <section class="grid lg:grid-cols-5 gap-3 px-3 md:px-12 xl:px-32 mt-36 mb-12  min-h-screen place-items-center lg:place-items-start">
             <div class="col-span-5 w-full">
                 @if(request()->has('search'))
                 <h1 class="text-5xl text-center font-black p-3 text-slate-800 dark:text-slate-400">Results for "{{ request('search') }}"</h1>
                 @elseif(request()->has('category'))
                 <h1 class="text-5xl text-center font-black p-3 text-slate-800 dark:text-slate-400">All Articles in <span class="uppercase">{{ $heading->name }}</span></h1>
                 @elseif(request()->has('author'))
-                {{-- <h1>All Articles by <span class="">{{ $heading->name }}</span></h1> --}}
                 <div class="px-12 py-8 transition-colors duration-200 text-base transform border cursor-pointer rounded-xl hover:border-transparent group bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:text-gray-200 text-gray-700">
                     <div class="flex flex-col sm:-mx-4 sm:flex-row">
                         <img class="flex-shrink-0 object-cover w-24 h-24 rounded-full sm:mx-4 ring-4 ring-gray-300" src="{{ asset($heading->image) }}" alt="">
