@@ -92,6 +92,7 @@
         </section>
     </main>
     <x-footer/>
+    <script src="{{ asset('js/nav.js') }}"></script>
     </x-main>
 
 

@@ -3946,8 +3946,8 @@ textarea.form-control.is-invalid {
   --tw-bg-opacity: 1;
   background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
-.bg-white\/5 {
-  background-color: rgb(255 255 255 / 0.05);
+.bg-black\/30 {
+  background-color: rgb(0 0 0 / 0.3);
 }
 .bg-gray-600 {
   --tw-bg-opacity: 1;
@@ -3970,12 +3970,6 @@ textarea.form-control.is-invalid {
 .bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
-.bg-white\/30 {
-  background-color: rgb(255 255 255 / 0.3);
-}
-.bg-black\/30 {
-  background-color: rgb(0 0 0 / 0.3);
 }
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;

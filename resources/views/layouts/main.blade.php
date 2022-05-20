@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ asset('img/logo/icon.png') }}">
+    <link rel="icon" href="{{ asset('storage/img/logo/icon.png') }}">
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
     <meta name="title" content="{{ $title ?? config('app.name', null) }}">
     @if(isset($description))
@@ -41,10 +41,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
     <script type="text/javascript" src="{{  asset('js/trix.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
 </head>
-    <body class="bg-slate-200 dark:bg-gradient-to-br from-gray-800 via-slate-900 to-black font-monts scroll-y-beautify">
-        {{ $slot }}
-    <script src="{{ asset('js/script.js') }}"></script>
+<body class="bg-slate-200 dark:bg-gradient-to-br from-gray-800 via-slate-900 to-black font-monts scroll-y-beautify">
+    {{ $slot }}
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
     </body>
 </html>

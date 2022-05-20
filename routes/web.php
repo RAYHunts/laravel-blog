@@ -46,15 +46,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/dashboard/article/{article}/take-down', [PostController::class, 'takeDown'])->name('article.takedown');
     Route::get('/dashboard/profile', [UserController::class, 'profile'])->name('profile');
 });
-Route::get('/carousel', function () {
-    return view(
-        'carousel',
-        [
-            'articles' => Article::with(['author', 'category'])->latest()->limit(5)->get(),
-        ]
-    );
-})->name('carousel');
-
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::resource('/dashboard/category', CategoryController::class);
     Route::resource('/dashboard/users', UserController::class);

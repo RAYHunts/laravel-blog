@@ -1,4 +1,3 @@
-import "tw-elements";
 const toggleNav = document.getElementById("toggle");
 const collapse = document.getElementById("collapse");
 const toggleDark = document.querySelectorAll('[data-toggle="toggle-dark"]');
@@ -35,3 +34,5 @@ toggleDark.forEach(function (item) {
 toggleNav.addEventListener("click", () => {
     collapse.classList.toggle("hidden");
 });
+
+import "tw-elements";
