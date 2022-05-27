@@ -41,7 +41,7 @@
     <ul>
       @foreach ($trending as $article)
       <li class="px-2 border-b">
-        <a href="{{ route('article.show', $article->slug) }}" class="text-lg text-slate-700 dark:text-slate-400 line-clamp-2">
+        <a href="{{ route('article', $article->slug) }}" class="text-lg text-slate-700 dark:text-slate-400 line-clamp-2">
           {{ $article->title }}
         </a>
       </li>
