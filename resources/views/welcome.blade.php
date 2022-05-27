@@ -70,7 +70,6 @@
                             <a href="{{ route('article', $article->slug) }}" class="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white hover:text-gray-600 hover:underline  line-clamp-2">{{ $article->title }}</a>
                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{{ $article->excerpt }}</p>
                         </div>
-            
                         <div class="mt-4">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">

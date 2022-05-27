@@ -7,11 +7,11 @@
     <link rel="icon" href="{{ asset('storage/img/logo/icon.png') }}">
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
     <meta name="title" content="{{ $title ?? config('app.name', null) }}">
-    @if(isset($description))
+    @if($description)
         <meta name="description" content="{{ $description }}">
     @endif
     <meta name="keywords" content="{{ $keywords ?? null }}">
-    @if(isset($author))
+    @if($author)
         <meta name="author" content="{{ $author }}">
     @endif
     <meta property="og:type" content="website">

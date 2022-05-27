@@ -48,10 +48,11 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $user = auth()->user()->id;
-        return view('profile', [
-            'user' => $user
-        ]);
+        if (auth()->user()->id == $user->id || auth()->user()->role == 'admin' || auth()->user()->role == 'developer') {
+            return view('dashboard.profile', [
+                'user' => $user,
+            ]);
+        }
     }
 
     /**
@@ -74,7 +75,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'username' => 'required|max:255',
+        ]);
+        User::where('id', auth()->user()->id)->update($validatedData);
+        return redirect()->back()->with('success', 'Profile updated successfully');
     }
 
     /**
@@ -85,7 +91,10 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if (auth()->user()->role == 'developer' || auth()->user()->role == 'admin') {
+            $user->delete();
+            return redirect()->back()->with('success', 'User deleted successfully');
+        }
     }
     public function profile()
     {

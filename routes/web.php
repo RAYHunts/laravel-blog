@@ -45,6 +45,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/dashboard/article/{article}/publish', [PostController::class, 'publish'])->name('article.publish');
     Route::post('/dashboard/article/{article}/take-down', [PostController::class, 'takeDown'])->name('article.takedown');
     Route::get('/dashboard/profile', [UserController::class, 'profile'])->name('profile');
+    Route::post('/dashboard/profile', [UserController::class, 'profile'])->name('profile.update');
 });
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::resource('/dashboard/category', CategoryController::class);
